@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terraform Demo - Sajith Jeewantha</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        fadein: "fadeIn 1s ease-in-out"
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            "0%": { opacity: 0 },
+                            "100%": { opacity: 1 }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 transition-all duration-500">
+
+    <div class="max-w-3xl mx-auto mt-20 p-10 bg-white dark:bg-gray-800 rounded-2xl shadow-xl animate-fadein">
+
+        <h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white">
+            Terraform Demo Application
+        </h1>
+
+        <p class="text-center text-gray-600 dark:text-gray-300 mt-3">
+            Flask Web Application deployed with Terraform
+        </p>
+
+        <div class="mt-6 text-center">
+            <span class="px-4 py-1 bg-blue-600 text-white text-sm rounded-full shadow">
+                Developed by Sajith Jeewantha
+            </span>
+        </div>
+
+        <div class="text-center mt-6">
+            <a href="https://github.com/sajith-jeewantha"
+               target="_blank"
+               class="text-blue-500 dark:text-blue-400 hover:underline text-lg font-medium">
+               👨‍💻 View on GitHub
+            </a>
+        </div>
+
+        <!-- API Endpoints Section -->
+        <div class="mt-14 text-center">
+            <h2 class="text-3xl font-semibold text-gray-700 dark:text-gray-200">API Endpoints</h2>
+
+            <p class="text-gray-500 dark:text-gray-400 mt-2">
+                Click any endpoint to view the JSON response
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+
+                <!-- /api/status -->
+                <a href="/api/status"
+                   class="block px-5 py-3 bg-blue-600 text-white rounded-xl shadow hover:scale-105 transition text-center">
+                    /api/status
+                </a>
+
+                <!-- /api/info -->
+                <a href="/api/info"
+                   class="block px-5 py-3 bg-purple-600 text-white rounded-xl shadow hover:scale-105 transition text-center">
+                    /api/info
+                </a>
+
+                <!-- /api/hello/<name> -->
+                <a href="#hello-section"
+                   class="block px-5 py-3 bg-green-600 text-white rounded-xl shadow hover:scale-105 transition text-center">
+                    /api/hello/&lt;name&gt;
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Enter Name for /api/hello/<name> -->
+        <div id="hello-section" class="mt-14 text-center">
+            <h3 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-3">
+                Try the Hello API
+            </h3>
+
+            <input id="nameInput"
+                   type="text"
+                   placeholder="Enter your name"
+                   class="px-4 py-2 rounded-lg border dark:bg-gray-700 dark:text-white dark:border-gray-600">
+
+            <button onclick="goToHelloAPI()"
+                    class="ml-2 px-5 py-2 bg-green-600 text-white rounded-xl hover:scale-105 transition">
+                Go →
+            </button>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="text-center mt-14">
+            <button onclick="toggleDarkMode()"
+                class="px-6 py-2 bg-gray-900 dark:bg-gray-200 text-white dark:text-gray-900 rounded-xl shadow hover:scale-105 transition">
+                Toggle Dark Mode 🌙
+            </button>
+        </div>
+
+        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-10">
+            © 2025 Terraform Demo | Flask Application
+        </p>
+
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle("dark");
+        }
+
+        function goToHelloAPI() {
+            const name = document.getElementById("nameInput").value.trim();
+            if (!name) {
+                alert("Please enter a name!");
+                return;
+            }
+            window.location.href = `/api/hello/${name}`;
+        }
+    </script>
+
+</body>
+</html>
