@@ -1,0 +1,48 @@
+# -------------------------
+# Terraform
+# -------------------------
+terraform/.terraform/             # Plugin cache
+terraform/*.tfstate               # Terraform state files (sensitive)
+terraform/*.tfstate.backup        # Terraform backup files
+terraform/terraform.tfstate.*     # Any other state backups
+terraform/terraform.tfvars         # Sensitive variables
+terraform/.terraform.lock.hcl    # Optional: lock file
+*.terraform/
+terraform.tfstate.*
+.terraform.lock.hcl
+*.tfstate
+
+
+# -------------------------
+# Python / Flask
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# -------------------------
+# Docker
+# -------------------------
+*.log
+docker-compose.override.yml
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------
+# OS-specific
+# -------------------------
+.DS_Store
+Thumbs.db
