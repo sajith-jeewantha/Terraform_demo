@@ -11,6 +11,13 @@ terraform {
   }
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "terraform-demo-tf-state"
+    prefix = "terraform/state"
+  }
+}
+
 provider "google" {
   project = var.google_project
   region  = var.region
